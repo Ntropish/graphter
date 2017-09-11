@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
-import { Input, Modal, Button, Sidebar, Segment, Menu } from 'semantic-ui-react'
+import { Input, Button, Sidebar, Segment, Menu } from 'semantic-ui-react'
 import update from 'react-addons-update'
 
 class App extends Component {
@@ -34,9 +34,9 @@ class App extends Component {
   addQuery() {
     let newQuery = {
       name: this.state.queries.length,
-      uri: 'a'
+      uri: 'https://api.graph.cool/simple/v1/cj5pgw8zyspp50122g1cc0j8h'
     }
-    let newState = update(this.state, {queries: {$push: newQuery}})
+    let newState = update(this.state, {queries: {$push: [newQuery]}})
     this.setState(newState)
   }
   toggleLeftMenu() {
@@ -64,6 +64,7 @@ class App extends Component {
               editorTheme='hopscotch'>
               <GraphiQL.Toolbar>
                 <Button onClick={()=>this.toggleLeftMenu()}>Open Menu</Button>
+                <Button onClick={()=>this.addQuery()}>Add Query</Button>
               <Input label="URI" onBlur={this.uriChanged}/>
                 {/* <Modal trigger={<Button compact="true">Change URI</Button>}>
                   <Modal.Content>
