@@ -1,0 +1,13 @@
+html, body, #root, .App, .pusher{
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background: hsla(230, 30%, 40%, 1);
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
